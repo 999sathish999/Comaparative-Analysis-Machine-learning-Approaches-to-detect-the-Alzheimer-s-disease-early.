@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Early Alzheimer Detection App</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <style>
+    input[type=text], input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;}
+
+    .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-top:100px;
+    border: solid black;}
+
+    label{
+      font-weight:bold;
+    }
+
+    h3{
+      color:#000066;
+    }
+
+    h2{
+      color:#800000;
+    }
+
+  </style>
+  </head>
+  <body class="bg-image"
+  style="
+    background-image: url('https://wallpapercave.com/wp/6Lib88D.jpg');
+    height: 100vh;
+  ">
+
+  <div class='container mt-10' style='top:20px; background-color:seashell; width:1000px; opacity:0.9' >
+    <h2 class="text-center">Early Alzheimer Detection Application</h2><br>
+
+<form action="{{url_for('home')}}" content-type="application/json" method="post">
+  <div class="row">
+    <h3>Demographic Data</h3>
+  </div>
+  <div class="row">
+    <!--div class="col-md-3">
+      <label for="visit" class="form-label">Visit: </label>
+      <input id="visit" type="number" name="Visit" class="form-control" placeholder="Visit Order...">
+    </div-->
+
+    <!--div class="col-md-3">
+      <label for="mrdelay" class="form-label">MR Delay: </label>
+      <input id="mrdelay" type="text" name="MR Delay" class="form-control" placeholder="MR Delay Time...">
+    </div-->
+
+    <!--div class="col-md-4">
+      <label for="sex" class="form-label">Sex: </label>
+      <input id="sex" type="text" name="M/F" class="form-control" placeholder="M/F">
+    </div-->
+
+    <div class="col-md-4">
+        <label>Gender:</label><br><br>
+        <div class="form-check-inline">
+            <label class="form-check-label" for="male">
+              <input id="male" value="1" type="radio" class="form-check-input" name="M/F">Male
+            </label>
+          </div>
+          <div class="form-check-inline">
+            <label class="form-check-label" for="female">
+              <input id="female" value="0" type="radio" class="form-check-input" name="M/F">Female
+            </label>
+          </div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="age" class="form-label">Age: </label>
+      <input id="age" type="number" name="Age" class="form-control" placeholder="Enter your age in numbers...">
+    </div>
+
+    <div class="col-md-4">
+      <label for="educ" class="form-label">Symptoms in years </label>
+      <input id="educ" type="number" name="EDUC" class="form-control" placeholder="Years in numbers...">
+    </div>
+</div>
+<br>
+<div class="row">
+
+    <!--div class="col-md-6">
+      <label for="ses" class="form-label">SES: </label>
+      <input id="ses" type="text" name="SES" class="form-control" placeholder="Socioeconomic status...">
+    </div-->
+
+    <div class="col-md-12">
+        <label>Socio-economic Status:</label><br><br>
+        <div class="form-check-inline">
+            <label class="form-check-label" for="SES1">
+              <input id="SES1" value="1" type="radio" class="form-check-input" name="SES">lower class
+            </label>
+          </div>
+          <div class="form-check-inline">
+            <label class="form-check-label" for="SES2">
+              <input id="SES2" value="2" type="radio" class="form-check-input" name="SES">lower-middle class
+            </label>
+          </div>
+          <div class="form-check-inline">
+            <label class="form-check-label" for="SES3">
+              <input id="SES3" value="3" type="radio" class="form-check-input" name="SES">middle class
+            </label>
+          </div>
+          <div class="form-check-inline">
+            <label class="form-check-label" for="SES4">
+              <input id="SES4" value="4" type="radio" class="form-check-input" name="SES">middle-upper class
+            </label>
+          </div>
+          <div class="form-check-inline">
+            <label class="form-check-label" for="SES5">
+              <input id="SES5" value="5" type="radio" class="form-check-input" name="SES">upper class
+            </label>
+          </div>
+
+    </div>
+</div>
+<br>
+<div class="row">
+  <h3>Data from Clinical Tests by Neurophysician</h3>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+      <label>Clinical Diagnosis Rating:</label><br><br>
+      <div class="form-check-inline">
+          <label class="form-check-label" for="CDR0">
+            <input id="CDR0" value="0" type="radio" class="form-check-input" name="CDR">0
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label" for="CDR05">
+            <input id="CDR05" value="0.5" type="radio" class="form-check-input" name="CDR">0.5
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label" for="CDR1">
+            <input id="CDR1" value="1" type="radio" class="form-check-input" name="CDR">1
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label" for="CDR2">
+            <input id="CDR2" value="2" type="radio" class="form-check-input" name="CDR">2
+          </label>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="mmse" class="form-label">Mini Mental State Examination(0-30): </label>
+      <input id="mmse" type="number" name="MMSE" class="form-control" placeholder="Enter the score...">
+    </div>
+
+</div>
+<br>
+<div class="row">
+  <h3>Data from MRI scans</h3>
+</div>
+
+  <div class="row">
+    <!--div class="col-md-4">
+      <label for="cdr" class="form-label">CDR: </label>
+      <input id="cdr" type="text" name="CDR" class="form-control" placeholder="Clinical Dementia Rating...">
+    </div-->
+    <div class="col-md-4">
+      <label for="etiv" class="form-label">Estimated Total Intracranial Volume: </label>
+      <input id="etiv" type="number" name="eTIV" class="form-control" placeholder="Enter the eTIV value...">
+    </div>
+
+    <div class="col-md-4">
+      <label for="nwbv" class="form-label">Normalized Whole Brain Volume: </label>
+      <input id="nwbv" type="number" step="any" name="nWBV" class="form-control" placeholder="Enter the nWBV value...">
+    </div>
+
+    <div class="col-md-4">
+      <label for="asf" class="form-label">Atlas Scaling Factor: </label>
+      <input id="asf" type="number" step="any" name="ASF" class="form-control" placeholder="Enter the ASF value...">
+    </div>
+
+
+  </div>
+  <br>
+  <div class="col-md-12 text-center">
+   <button class='btn btn-info' type="submit" >Submit</button>
+  </div>
+
+</div>
+
+
+    </form>
+    <div id="demo"></div>
+  </div>
+  </body>
+</html>
+
+
+
